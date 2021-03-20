@@ -3,6 +3,11 @@ extends KinematicBody2D
 export var velocity = 200
 var movement = Vector2()
 
+export (PackedScene) var Bomb
+
+# Estágio em que o jogador se encontra
+var stage: Stage1
+
 enum Direction {TOP, LEFT, DOWN, RIGHT}
 var player_direction
 
@@ -14,6 +19,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	move_player()
+	
+	if Input.is_action_pressed("ui_select"):
+		create_bomb()
 	
 	# Se está se movendo
 	if movement != Vector2():
@@ -65,3 +73,12 @@ func change_direction():
 	# Animação de andar para direita
 	elif player_direction == Direction.RIGHT:
 		$AnimatedSprite.play("Right")
+
+# Cria uma bomba
+func create_bomb():
+	var bomb = Bomb.instance()
+	var pos: Vector2 = stage.player.position
+	pos.x = int(pos.x/16) * 16 + 8
+	pos.y = int(round(pos.y + 0.5)/16) * 16 + 6
+	bomb.position = pos
+	stage.add_child_below_node(stage.get_node_wall(), bomb)

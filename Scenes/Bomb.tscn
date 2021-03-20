@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Bomb/Wait_Explode/0.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Bomb/Wait_Explode/1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Bomb/Wait_Explode/2.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Bomb.gd" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,14 +16,18 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
-[node name="Bomb" type="StaticBody2D"]
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Bomb" type="Area2D"]
+script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Bomb"
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="body_exited" from="." to="." method="_on_Bomb_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
