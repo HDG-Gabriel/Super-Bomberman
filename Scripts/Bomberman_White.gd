@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	move_player()
 	
-	# Está se movendo
+	# Se está se movendo
 	if movement != Vector2():
 		change_direction()
 	else:

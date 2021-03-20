@@ -26,10 +26,20 @@ animations = [ {
 "name": "Idle_Right",
 "speed": 1.0
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Left",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "Idle_Top",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Top",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 2 ) ],
 "loop": true,
@@ -41,20 +51,10 @@ animations = [ {
 "name": "Idle_Left",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Left",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "Idle_Down",
 "speed": 1.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Top",
-"speed": 8.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -66,7 +66,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-velocity = 1200
+velocity = 50
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
