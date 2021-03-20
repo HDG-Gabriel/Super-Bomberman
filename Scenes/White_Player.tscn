@@ -1,0 +1,77 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Bomberman_White.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Players/White/Right/2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Players/White/Top/1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Players/White/Top/0.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Players/White/Left/0.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Players/White/Left/1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Players/White/Down/1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Players/White/Right/1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Players/White/Top/2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Players/White/Down/2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Players/White/Down/0.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Players/White/Left/2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Players/White/Right/0.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Down",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Top",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 8 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Right",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Left",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Idle_Right",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Idle_Down",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Idle_Left",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "Idle_Top",
+"speed": 1.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.80565
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( -0.293993, -11.7311 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+velocity = 1200
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle_Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.246252, 5.76989 )
+shape = SubResource( 2 )
