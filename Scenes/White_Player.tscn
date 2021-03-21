@@ -17,24 +17,19 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Top",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Down",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": false,
-"name": "Idle_Right",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "Idle_Left",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "Top",
+"name": "Left",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 2 ) ],
@@ -42,31 +37,35 @@ animations = [ {
 "name": "Right",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Idle_Left",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "Idle_Top",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Left",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "Idle_Down",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Idle_Right",
 "speed": 1.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 7.90053
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 position = Vector2( 0, -10 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 velocity = 50
 Bomb = ExtResource( 14 )
 
@@ -74,8 +73,6 @@ Bomb = ExtResource( 14 )
 frames = SubResource( 1 )
 animation = "Idle_Right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
-"Player",
-]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.246252, 5.76989 )
 shape = SubResource( 2 )

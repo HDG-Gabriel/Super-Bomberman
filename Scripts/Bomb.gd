@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 class_name Bomb
 
@@ -15,6 +15,6 @@ func _on_Timer_timeout():
 	queue_free()
 
 
-func _on_Bomb_body_exited(body):
-	print("ShEiPado")
-	$CollisionShape2D.set_deferred("enable", true)
+func _on_Area2D_body_exited(body):
+	# Ativa a colisão
+	$CollisionShape2D.set_deferred("disabled", false)
