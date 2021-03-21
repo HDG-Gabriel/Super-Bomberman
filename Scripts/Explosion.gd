@@ -1,0 +1,35 @@
+extends Node
+
+var stage: Stage1
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+func create_explosion(pos: Vector2):
+	# Configura a posição
+	pos -= Vector2(6*16, 32 + 4)
+	explosion_position(pos)
+	
+	$Center.position = pos
+	$Tail.queue_free()
+	$Down.queue_free()
+
+# Configura o tamanho da explosão
+func explosion_position(pos_bomb: Vector2):
+	var rot = 0
+	var positions = [Vector2(0, 16), Vector2(-16, 0), Vector2(0, -16), Vector2(16, 0)]
+	var node = []
+	for i in range(0, 4):
+		node.append($Down.duplicate())
+		node[i].position = positions[i] + pos_bomb
+		add_child(node[i])
+		
+		if i > 0:
+			rot += 90
+			node[i].get_node("Sprite").rotation_degrees = rot
