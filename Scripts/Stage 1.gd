@@ -10,9 +10,6 @@ var player
 func _ready():
 	create_player()
 
-func get_node_wall() -> Node:
-	return $Wall
-
 # Cria um jogador
 func create_player():
 	player = Player.instance()

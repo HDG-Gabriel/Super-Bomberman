@@ -1,4 +1,4 @@
-extends Node
+extends Area2D
 
 var stage: Stage1
 
@@ -15,10 +15,11 @@ func create_explosion(pos: Vector2):
 	# Configura a posição
 	pos -= Vector2(6*16, 32 + 4)
 	explosion_position(pos)
+	stage.add_child_below_node(stage.get_node("Ground"), self)
 	
-	$Center.position = pos
+	$".".position = pos
 	$Tail.queue_free()
-	$Down.queue_free()
+	$Stub.queue_free()
 
 # Configura o tamanho da explosão
 func explosion_position(pos_bomb: Vector2):
@@ -26,7 +27,7 @@ func explosion_position(pos_bomb: Vector2):
 	var positions = [Vector2(0, 16), Vector2(-16, 0), Vector2(0, -16), Vector2(16, 0)]
 	var node = []
 	for i in range(0, 4):
-		node.append($Down.duplicate())
+		node.append($Stub.duplicate())
 		node[i].position = positions[i] + pos_bomb
 		add_child(node[i])
 		

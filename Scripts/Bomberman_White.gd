@@ -81,5 +81,5 @@ func create_bomb():
 	pos.x = int(pos.x/16) * 16 + 8
 	pos.y = int(round(pos.y + 0.5)/16) * 16 + 6
 	bomb.position = pos
-	stage.add_child_below_node(stage.get_node_wall(), bomb)
+	stage.add_child_below_node(stage.get_node("Ground"), bomb)
 	bomb.stage = stage

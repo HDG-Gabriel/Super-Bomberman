@@ -17,10 +17,9 @@ func _ready():
 
 func _on_Timer_timeout():
 	var explosion = Explosion.instance()
+	explosion.stage = stage
 	explosion.create_explosion(position)
-	stage.add_child(explosion)
 	queue_free()
-	
 
 func _on_Area2D_body_exited(body):
 	# Ativa a colisão
