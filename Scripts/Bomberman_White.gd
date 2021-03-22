@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
+class_name Player
+
 export var velocity = 200
 var movement = Vector2()
+
+var is_death: bool = false
 
 export (PackedScene) var Bomb
 
@@ -18,19 +22,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move_player()
-	
-	if Input.is_action_pressed("ui_select"):
-		create_bomb()
+	if !is_death:
+		move_player()
 
-	if Input.is_action_pressed("ui_focus_next"):
-		print("Player position: " + str(position))
-	
-	# Se está se movendo
-	if movement != Vector2():
-		change_direction()
-	else:
-		change_direction_idle()
+		if Input.is_action_pressed("ui_select"):
+			create_bomb()
+
+		if Input.is_action_pressed("ui_focus_next"):
+			print("Player position: " + str(position))
+
+		# Se está se movendo
+		if movement != Vector2():
+			change_direction()
+		else:
+			change_direction_idle()
 
 # Cuida da movimentação do player
 func move_player():
@@ -83,3 +88,13 @@ func create_bomb():
 	var bomb = Bomb.instance()
 	bomb.stage = stage
 	bomb.create(stage.player.position)
+
+# Faz a animação de morrer
+func death():
+	is_death = true
+	$AnimatedSprite.play("Death")
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "Death":
+		hide()
