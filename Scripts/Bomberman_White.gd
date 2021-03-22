@@ -48,6 +48,7 @@ func move_player():
 		movement = Vector2()
 	movement = move_and_slide(movement)
 
+
 # Seleciona a animação para quando o jogador estiver parado
 func change_direction_idle():
 	if player_direction == Direction.TOP:
