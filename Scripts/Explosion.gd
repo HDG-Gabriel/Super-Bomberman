@@ -14,12 +14,9 @@ func _ready():
 func create_explosion(pos: Vector2):
 	# Configura a posição
 	pos -= Vector2(6*16, 32 + 4)
-	explosion_position(pos)
+	#explosion_position(pos)
 	stage.add_child_below_node(stage.get_node("Ground"), self)
 	
-	$".".position = pos
-	$Tail.queue_free()
-	$Stub.queue_free()
 
 # Configura o tamanho da explosão
 func explosion_position(pos_bomb: Vector2):

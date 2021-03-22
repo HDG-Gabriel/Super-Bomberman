@@ -18,7 +18,7 @@ func _ready():
 func _on_Timer_timeout():
 	var explosion = Explosion.instance()
 	explosion.stage = stage
-	explosion.create_explosion(position)
+	#explosion.create_explosion(position)
 	queue_free()
 
 func _on_Area2D_body_exited(body):
