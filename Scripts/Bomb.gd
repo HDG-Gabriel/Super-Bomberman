@@ -16,15 +16,15 @@ func _ready():
 #	pass
 
 func _on_Timer_timeout():
-	#var explosion = Explosion.instance()
-	#explosion.stage = stage
-	#explosion.create_explosion(position)
-	print("Bomb position: " + str(position))
+	var explosion = Explosion.instance()
+	explosion.stage = stage
+	explosion.create_explosion(position)
 	queue_free()
 
 # Cria uma bomba
 func create(pos: Vector2):
-	position = pos
+	position.x = int(round(pos.x)/16) * 16 + 8
+	position.y = int(ceil(pos.y - 1)/16) * 16 + 5
 	stage.add_child_below_node(stage.get_node("Ground"), self)
 
 func _on_Area2D_body_exited(body):
