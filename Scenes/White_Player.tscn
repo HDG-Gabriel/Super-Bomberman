@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Bomberman_White.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Players/White/Right/2.png" type="Texture" id=2]
@@ -14,19 +14,15 @@
 [ext_resource path="res://Sprites/Players/White/Left/2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Players/White/Right/0.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Bomb.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Players/White/Death/0.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Players/White/Death/1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Players/White/Death/2.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Players/White/Death/5.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Players/White/Death/3.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Players/White/Death/4.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Top",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Down",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Left",
@@ -37,14 +33,19 @@ animations = [ {
 "name": "Right",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Top",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Down",
+"speed": 3.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "Idle_Left",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "Idle_Down",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -56,6 +57,16 @@ animations = [ {
 "loop": false,
 "name": "Idle_Top",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Idle_Down",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Death",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -75,7 +86,7 @@ Bomb = ExtResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Idle_Right"
+animation = "Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0189152, 4.26729 )
