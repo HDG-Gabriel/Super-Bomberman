@@ -22,6 +22,11 @@ func _on_Timer_timeout():
 	print("Bomb position: " + str(position))
 	queue_free()
 
+# Cria uma bomba
+func create(pos: Vector2):
+	position = pos
+	stage.add_child_below_node(stage.get_node("Ground"), self)
+
 func _on_Area2D_body_exited(body):
 	# Ativa a colisão
 	$CollisionShape2D.set_deferred("disabled", false)

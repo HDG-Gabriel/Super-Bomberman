@@ -22,6 +22,9 @@ func _process(delta):
 	
 	if Input.is_action_pressed("ui_select"):
 		create_bomb()
+
+	if Input.is_action_pressed("ui_focus_next"):
+		print("Player position: " + str(position))
 	
 	# Se está se movendo
 	if movement != Vector2():
@@ -75,12 +78,8 @@ func change_direction():
 	elif player_direction == Direction.RIGHT:
 		$AnimatedSprite.play("Right")
 
-# Cria uma bomba
+# Instancia um bomba
 func create_bomb():
 	var bomb = Bomb.instance()
-	var pos: Vector2 = stage.player.position
-	pos.x = int(pos.x/16) * 16 + 8
-	pos.y = int(round(pos.y + 0.5)/16) * 16 + 6
-	bomb.position = pos
-	stage.add_child_below_node(stage.get_node("Ground"), bomb)
 	bomb.stage = stage
+	bomb.create(stage.player.position)
