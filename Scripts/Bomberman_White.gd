@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-class_name Player
-
 export var velocity = 200
 var movement = Vector2()
 

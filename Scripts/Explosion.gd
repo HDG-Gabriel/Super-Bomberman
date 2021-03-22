@@ -39,6 +39,7 @@ func explosion_position(pos_bomb: Vector2):
 
 func _on_Center_body_entered(body: Node2D):
 	kill_player(body)
+	destroy_block(body)
 
 
 func _on_Timer_timeout():
@@ -47,7 +48,13 @@ func _on_Timer_timeout():
 
 func _on_Stub_body_entered(body):
 	kill_player(body)
+	destroy_block(body)
 
 func kill_player(body: Node2D):
 	if body.is_in_group("Player"):
 		body.death()
+
+
+func destroy_block(body: Node2D):
+	if body.is_in_group("Blocks"):
+		body.destroy()

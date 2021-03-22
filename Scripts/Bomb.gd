@@ -4,7 +4,7 @@ class_name Bomb
 
 export (PackedScene) var Explosion
 
-var stage: Stage1
+var stage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +23,7 @@ func _on_Timer_timeout():
 
 # Cria uma bomba
 func create(pos: Vector2):
-	position.x = int(round(pos.x)/16) * 16 + 8
+	position.x = int(round(pos.x)/16) * 16 + 7
 	position.y = int(ceil(pos.y - 1)/16) * 16 + 5
 	stage.add_child_below_node(stage.get_node("Ground"), self)
 
