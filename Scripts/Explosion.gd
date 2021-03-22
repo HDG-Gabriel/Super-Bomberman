@@ -12,12 +12,12 @@ func _ready():
 #	pass
 
 func create_explosion(pos: Vector2):
+	stage.add_child_below_node(stage.get_node("Wall"), self)
 	# Configura a posição
+	pos += Vector2(0, -1)
 	$"Center".position = pos
 	explosion_position(pos)
-	stage.add_child_below_node(stage.get_node("Wall"), self)
 
-	explosion_position(pos)
 	$Stub.queue_free()
 	$Tail.queue_free()
 
@@ -25,8 +25,6 @@ func create_explosion(pos: Vector2):
 func explosion_position(pos_bomb: Vector2):
 	# Rotação
 	var rot = 0
-	
-	pos_bomb -= Vector2(6*16 + 10, -9)
 	
 	var positions = [Vector2(0, 16), Vector2(-16, 0), Vector2(0, -16), Vector2(16, 0)]
 	var node = []

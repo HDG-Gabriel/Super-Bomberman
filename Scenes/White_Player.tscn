@@ -58,14 +58,18 @@ animations = [ {
 "speed": 1.0
 } ]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 7.90053
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.9
+height = 0.0
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -14.8493 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 velocity = 50
 Bomb = ExtResource( 14 )
 
@@ -74,5 +78,5 @@ frames = SubResource( 1 )
 animation = "Idle_Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.246252, 5.76989 )
+position = Vector2( 0.0189152, 4.26729 )
 shape = SubResource( 2 )
