@@ -59,7 +59,7 @@ position = Vector2( 0.854517, -0.089357 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 [connection signal="body_entered" from="Center" to="." method="_on_Center_body_entered"]
 [connection signal="body_entered" from="Stub" to="." method="_on_Stub_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

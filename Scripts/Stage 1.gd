@@ -9,7 +9,7 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#create_blocks()
+	create_blocks()
 	create_player()
 
 
@@ -19,6 +19,7 @@ func create_player():
 	player.stage = self
 	player.position = Vector2(56, 20)
 	add_child(player)
+
 
 # Cria os blocos para a arena
 func create_blocks():
