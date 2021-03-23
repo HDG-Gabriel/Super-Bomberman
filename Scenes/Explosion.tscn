@@ -12,27 +12,27 @@
 [ext_resource path="res://Sprites/Explosion/Stub/Stub2.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Explosion/Stub/Stub1.png" type="Texture" id=14]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Center",
-"speed": 8.0
+"speed": 14.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 6.67741
 height = 1.0883
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Stub",
-"speed": 8.0
+"speed": 14.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 4.16348
 height = 5.85701
 
@@ -43,33 +43,33 @@ __meta__ = {
 }
 
 [node name="Center" type="Area2D" parent="."]
-position = Vector2( 85.6751, 11.7946 )
+position = Vector2( 7.68195, 8.43102 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Center"]
 position = Vector2( 0.0915184, -0.161653 )
-frames = SubResource( 4 )
+frames = SubResource( 1 )
 animation = "Center"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
 visible = false
 position = Vector2( -0.207634, 0.166199 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Stub" type="Area2D" parent="."]
-position = Vector2( 85.3044, 27.8469 )
+position = Vector2( 7.31125, 24.4833 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Stub"]
 position = Vector2( 0.345715, -0.386963 )
-frames = SubResource( 6 )
+frames = SubResource( 3 )
 animation = "Stub"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stub"]
 visible = false
 position = Vector2( 0.937374, -1.01267 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
