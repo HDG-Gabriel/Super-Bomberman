@@ -36,39 +36,53 @@ animations = [ {
 radius = 4.16348
 height = 5.85701
 
-[node name="Explosion" type="Node2D"]
+[node name="Explosion" type="Node2D" groups=[
+"Explosion",
+]]
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="Center" type="Area2D" parent="."]
+[node name="Center" type="Area2D" parent="." groups=[
+"Explosion",
+]]
 position = Vector2( 7.68195, 8.43102 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Center"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Center" groups=[
+"Explosion",
+]]
 position = Vector2( 0.0915184, -0.161653 )
 frames = SubResource( 1 )
 animation = "Center"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center" groups=[
+"Explosion",
+]]
 position = Vector2( -0.207634, 0.166199 )
 shape = SubResource( 2 )
 
-[node name="Stub" type="Area2D" parent="."]
+[node name="Stub" type="Area2D" parent="." groups=[
+"Explosion",
+]]
 position = Vector2( 7.31125, 24.4833 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Stub"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Stub" groups=[
+"Explosion",
+]]
 position = Vector2( 0.345715, -0.386963 )
 frames = SubResource( 3 )
 animation = "Stub"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stub"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stub" groups=[
+"Explosion",
+]]
 position = Vector2( 0.937374, -1.01267 )
 shape = SubResource( 4 )
 [connection signal="body_entered" from="Center" to="." method="_on_Center_body_entered"]

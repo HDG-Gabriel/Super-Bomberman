@@ -15,6 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
+
 # Ativa a animação de destruição
 func destroy():
 	$AnimatedSprite.play("Exploding")
@@ -23,3 +24,10 @@ func destroy():
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Exploding":
 		queue_free()
+
+
+func _on_Area2D_area_entered(area: Area2D):
+	# Destroi a explosão para não sobrepor ao block
+	if area.is_in_group("Explosion"):
+		area.queue_free()
+		destroy()
