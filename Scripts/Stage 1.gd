@@ -9,7 +9,7 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	create_blocks()
+	#create_blocks()
 	create_player()
 
 

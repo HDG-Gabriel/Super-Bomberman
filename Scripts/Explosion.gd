@@ -4,7 +4,7 @@ var stage: Stage1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer.start()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,25 +16,27 @@ func create_explosion(pos: Vector2):
 	# Configura a posição
 	$"Center".position = pos
 	explosion_position(pos)
+	$Center.get_node("AnimatedSprite").play("Center")
 
 	$Stub.queue_free()
-	$Tail.queue_free()
 
 # Configura o tamanho da explosão
 func explosion_position(pos_bomb: Vector2):
 	# Rotação
 	var rot = 0
 	
-	var positions = [Vector2(0, 14), Vector2(-15, -1), Vector2(0, -16), Vector2(16, 0)]
+	var positions = [Vector2(0, 14), Vector2(-15, -1), Vector2(0, -15), Vector2(15, 0)]
 	var node = []
 	for i in range(0, 4):
 		node.append($Stub.duplicate())
 		node[i].position = pos_bomb + positions[i]
 		add_child(node[i])
 		
+		node[i].get_node("AnimatedSprite").play("Stub")
+		
 		if i > 0:
 			rot += 90
-			node[i].get_node("Sprite").rotation_degrees = rot
+			node[i].get_node("AnimatedSprite").rotation_degrees = rot
 			
 			# Rotaciona o colisor tbm
 			if (rot / 90) % 2 == 1:
@@ -44,9 +46,6 @@ func explosion_position(pos_bomb: Vector2):
 func _on_Center_body_entered(body: Node2D):
 	kill_player(body)
 	destroy_block(body)
-
-
-func _on_Timer_timeout():
 	queue_free()
 
 
