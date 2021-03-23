@@ -23,16 +23,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Left",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Right",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Top",
@@ -43,19 +33,19 @@ animations = [ {
 "name": "Down",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Right",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Left",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "Idle_Left",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": false,
-"name": "Idle_Right",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "Idle_Top",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -63,10 +53,20 @@ animations = [ {
 "name": "Idle_Down",
 "speed": 1.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "Idle_Top",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "Death",
-"speed": 4.0
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Idle_Right",
+"speed": 1.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]

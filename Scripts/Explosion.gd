@@ -35,6 +35,10 @@ func explosion_position(pos_bomb: Vector2):
 		if i > 0:
 			rot += 90
 			node[i].get_node("Sprite").rotation_degrees = rot
+			
+			# Rotaciona o colisor tbm
+			if (rot / 90) % 2 == 1:
+				node[i].get_node("CollisionShape2D").rotation_degrees = 90
 
 
 func _on_Center_body_entered(body: Node2D):

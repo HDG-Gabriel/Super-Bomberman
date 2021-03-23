@@ -23,8 +23,8 @@ func _on_Timer_timeout():
 
 # Cria uma bomba
 func create(pos: Vector2):
-	position.x = int(round(pos.x)/16) * 16 + 7
-	position.y = int(ceil(pos.y - 1)/16) * 16 + 5
+	position.x = int(round(pos.x)/16) * 16 + 8
+	position.y = int(ceil(pos.y - 1)/16) * 16 + 8
 	stage.add_child_below_node(stage.get_node("Ground"), self)
 
 func _on_Area2D_body_exited(body):
