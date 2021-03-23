@@ -17,7 +17,7 @@ animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Center",
-"speed": 14.0
+"speed": 12.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -29,7 +29,7 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Stub",
-"speed": 14.0
+"speed": 12.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -54,7 +54,6 @@ frames = SubResource( 1 )
 animation = "Center"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
-visible = false
 position = Vector2( -0.207634, 0.166199 )
 shape = SubResource( 2 )
 
@@ -70,6 +69,8 @@ frames = SubResource( 3 )
 animation = "Stub"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stub"]
-visible = false
 position = Vector2( 0.937374, -1.01267 )
 shape = SubResource( 4 )
+[connection signal="body_entered" from="Center" to="." method="_on_Center_body_entered"]
+[connection signal="animation_finished" from="Center/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Stub" to="." method="_on_Stub_body_entered"]

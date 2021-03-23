@@ -46,12 +46,12 @@ func explosion_position(pos_bomb: Vector2):
 func _on_Center_body_entered(body: Node2D):
 	kill_player(body)
 	destroy_block(body)
-	queue_free()
 
 
 func _on_Stub_body_entered(body):
 	kill_player(body)
 	destroy_block(body)
+
 
 func kill_player(body: Node2D):
 	if body.is_in_group("Player"):
@@ -61,3 +61,8 @@ func kill_player(body: Node2D):
 func destroy_block(body: Node2D):
 	if body.is_in_group("Blocks"):
 		body.destroy()
+
+
+# Quanto a animação de explosão terminar ela será destruida
+func _on_AnimatedSprite_animation_finished():
+	queue_free()
