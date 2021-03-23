@@ -1,9 +1,19 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Explosion/center.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Explosion/stub.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Explosion/tail.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Explosion.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Explosion/Center/center2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Explosion/Center/center4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Explosion/Center/center0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Explosion/Center/center1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Explosion/Center/center3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Explosion/Stub/Stub4.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Explosion/Stub/Stub3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Explosion/Stub/Stub0.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Explosion/Stub/Stub2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Explosion/Stub/Stub1.png" type="Texture" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.65977
@@ -16,6 +26,30 @@ height = 0.0
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 4.06141
 height = 4.34558
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Center",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.67741
+height = 1.0883
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Stub",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 4.16348
+height = 5.85701
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource( 4 )
@@ -60,6 +94,37 @@ shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Center 2" type="Area2D" parent="."]
+position = Vector2( 85.6751, 11.7946 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Center 2"]
+position = Vector2( 0.0915184, -0.161653 )
+frames = SubResource( 4 )
+animation = "Center"
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center 2"]
+position = Vector2( -0.207634, 0.166199 )
+shape = SubResource( 5 )
+
+[node name="Stub 2" type="Area2D" parent="."]
+position = Vector2( 69.4532, 14.3316 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Stub 2"]
+position = Vector2( 0.345715, -0.386963 )
+frames = SubResource( 6 )
+animation = "Stub"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stub 2"]
+position = Vector2( 0.937374, -1.01267 )
+shape = SubResource( 7 )
 [connection signal="body_entered" from="Center" to="." method="_on_Center_body_entered"]
 [connection signal="body_entered" from="Stub" to="." method="_on_Stub_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
