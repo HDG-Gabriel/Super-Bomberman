@@ -6,6 +6,8 @@ export (PackedScene) var Explosion
 
 var stage
 
+var player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.play("Bomb")
@@ -17,13 +19,15 @@ func _ready():
 #	pass
 
 func _on_Timer_timeout():
+	player.numero_bombas += 1
 	var explosion = Explosion.instance()
 	explosion.stage = stage
 	explosion.create_explosion(position)
 	queue_free()
 
 # Cria uma bomba
-func create(pos: Vector2):
+func create(pos: Vector2, player: Node2D):
+	self.player = player
 	position.x = int(round(pos.x)/16) * 16 + 8
 	position.y = int(ceil(pos.y - 1)/16) * 16 + 8
 	stage.add_child_below_node(stage.get_node("Ground"), self)

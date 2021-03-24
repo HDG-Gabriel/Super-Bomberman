@@ -33,14 +33,14 @@ animations = [ {
 "name": "Down",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Right",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Left",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Right",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 5 ) ],

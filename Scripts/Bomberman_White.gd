@@ -10,6 +10,8 @@ export (PackedScene) var Bomb
 # Estágio em que o jogador se encontra
 var stage: Stage1
 
+var numero_bombas: int = 1
+
 enum Direction {TOP, LEFT, DOWN, RIGHT}
 var player_direction
 
@@ -83,9 +85,11 @@ func change_direction():
 
 # Instancia um bomba
 func create_bomb():
-	var bomb = Bomb.instance()
-	bomb.stage = stage
-	bomb.create(stage.player.position)
+	if numero_bombas > 0:
+		numero_bombas -= 1
+		var bomb = Bomb.instance()
+		bomb.stage = stage
+		bomb.create(stage.player.position, self)
 
 # Faz a animação de morrer
 func death():
