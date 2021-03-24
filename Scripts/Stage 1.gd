@@ -9,6 +9,9 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Permite a criação de números pseudo-aleatórios
+	randomize()
+
 	create_blocks()
 	create_player()
 
@@ -41,6 +44,8 @@ func create_blocks():
 			# Posições não permitidas
 			if block_pos in block_positions:
 				block.queue_free()
+			
+			aleatory_block(block)
 	
 	# Preenche verticalmente
 	for i in range(56, 56 + 15*16, 32):
@@ -53,7 +58,16 @@ func create_blocks():
 			# Posições não permitidas
 			if pos in block_positions:
 				block.queue_free()
+			
+			aleatory_block(block)
 
+
+# Tem a probabilidade quebrar um block
+func aleatory_block(block: Node2D):
+	var random =  1 + randi()%10   #[1, 10]
+	
+	if random < 2:
+		block.queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

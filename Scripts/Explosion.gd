@@ -33,7 +33,7 @@ func explosion_position(pos_bomb: Vector2):
 		add_child(node[i])
 		
 		node[i].get_node("AnimatedSprite").play("Stub")
-		
+
 		if i > 0:
 			rot += 90
 			node[i].get_node("AnimatedSprite").rotation_degrees = rot
@@ -59,6 +59,7 @@ func kill_player(body: Node2D):
 		pass
 
 
-# Quanto a animação de explosão terminar ela será destruida
+# Quando a animação de explosão terminar ela será destruida
 func _on_AnimatedSprite_animation_finished():
 	queue_free()
+
