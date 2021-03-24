@@ -17,6 +17,7 @@ func create_explosion(pos: Vector2):
 	$"Center".position = pos
 	explosion_position(pos)
 	$Center.get_node("AnimatedSprite").play("Center")
+	$SoundExplosion.play()
 
 	$Stub.queue_free()
 
@@ -54,6 +55,9 @@ func _on_Stub_body_entered(body):
 func kill_player(body: Node2D):
 	if body.is_in_group("Player"):
 		body.death()
+	
+	if body.is_in_group("Static_Blocks"):
+		pass
 
 
 # Quanto a animação de explosão terminar ela será destruida

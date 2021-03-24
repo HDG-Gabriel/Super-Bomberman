@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
+[ext_resource path="res://Audio/Explosion.Wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Explosion.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Explosion/Center/center2.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Explosion/Center/center4.png" type="Texture" id=6]
@@ -85,6 +86,9 @@ animation = "Stub"
 ]]
 position = Vector2( 0.937374, -1.01267 )
 shape = SubResource( 4 )
+
+[node name="SoundExplosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
 [connection signal="body_entered" from="Center" to="." method="_on_Center_body_entered"]
 [connection signal="animation_finished" from="Center/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Stub" to="." method="_on_Stub_body_entered"]
