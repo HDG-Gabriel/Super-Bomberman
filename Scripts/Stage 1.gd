@@ -4,6 +4,7 @@ class_name Stage1
 
 export (PackedScene) var Player
 export (PackedScene) var Block
+export (PackedScene) var Wall
 
 var player
 
@@ -46,7 +47,7 @@ func create_blocks():
 				block.queue_free()
 			
 			aleatory_block(block)
-	
+
 	# Preenche verticalmente
 	for i in range(56, 56 + 15*16, 32):
 		for j in range(40, 40 + 16*9, 32):
@@ -54,15 +55,22 @@ func create_blocks():
 			var pos = Vector2(i, j)
 			block.position = pos
 			add_child(block)
-			
+
 			# Posições não permitidas
 			if pos in block_positions:
 				block.queue_free()
-			
+
 			aleatory_block(block)
 
 
-# Tem a probabilidade quebrar um block
+# Cria as paresdes que circundam a cena
+func create_walls():
+	var wall = Wall.instance()
+	add_child(wall)
+	wall.position = Vector2(40, 8)
+
+
+# Tem a probabilidade quebrar um bloco
 func aleatory_block(block: Node2D):
 	var random =  1 + randi()%10   #[1, 10]
 	
