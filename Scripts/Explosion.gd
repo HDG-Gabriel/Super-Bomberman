@@ -13,11 +13,10 @@ func _ready():
 
 func create_explosion(pos: Vector2):
 	stage.add_child_below_node(stage.get_node("Wall"), self)
-	# Configura a posição
+	$SoundExplosion.play()
 	$"Center".position = pos
 	explosion_position(pos)
 	$Center.get_node("AnimatedSprite").play("Center")
-	$SoundExplosion.play()
 
 	$Stub.queue_free()
 
