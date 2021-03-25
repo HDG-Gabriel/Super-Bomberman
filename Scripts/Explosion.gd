@@ -4,7 +4,9 @@ var stage: Stage1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# Por padrão a explosão inicia oculta, para que quando
+	# parte coloidir com outras coisas, a chama seja destruída
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

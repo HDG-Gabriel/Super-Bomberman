@@ -29,5 +29,7 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Area2D_area_entered(area: Area2D):
 	# Destroi a explosão para não sobrepor ao block
 	if area.is_in_group("Explosion"):
+		if area.get_parent().visible == false:
+			area.get_parent().visible = true
 		area.queue_free()
 		destroy()
