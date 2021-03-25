@@ -15,6 +15,7 @@ func _ready():
 
 	create_blocks()
 	create_player()
+	create_walls()
 
 
 # Cria um jogador
@@ -65,9 +66,30 @@ func create_blocks():
 
 # Cria as paresdes que circundam a cena
 func create_walls():
+	create_walls_in_interior()
+	
+	# Cria blocos na horinzontal
+	for i in range(40, 296 + 1, 16):
+		create_individual_wall(Vector2(i, 8))
+		create_individual_wall(Vector2(i, 200))
+	# Cria blocos na vertical
+	for j in range(24, 184 + 1, 16):
+		create_individual_wall(Vector2(40, j))
+		create_individual_wall(Vector2(296, j))
+
+
+func create_individual_wall(pos: Vector2):
 	var wall = Wall.instance()
-	add_child(wall)
-	wall.position = Vector2(40, 8)
+	add_child_below_node($Ground, wall)
+	wall.position = Vector2(pos)
+
+# Cria as paredes internas da arena
+func create_walls_in_interior():
+	for i in range(72, 264 + 1, 32):
+		for j in range(40, 168 + 1, 32):
+			var wall = Wall.instance()
+			add_child_below_node($Ground, wall)
+			wall.position = Vector2(i, j)
 
 
 # Tem a probabilidade quebrar um bloco
