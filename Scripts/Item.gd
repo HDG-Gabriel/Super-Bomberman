@@ -16,8 +16,11 @@ func choose_animation():
 #	pass
 
 
-func _on_Item_body_entered(body):
+func _on_Item_body_entered(body: Node2D):
 	if body.is_in_group("Player"):
+		$ItemCollected.play()
+		hide()
+
 		if $AnimatedSprite.animation == "Speed":
 			buffer_speed(body)
 
@@ -26,4 +29,8 @@ func _on_Item_body_entered(body):
 func buffer_speed(body: Node2D):
 	$CollisionShape2D.set_deferred("disabled", true)
 	body.velocity += 20
+
+
+# Destroy o node atual
+func _on_ItemCollected_finished():
 	queue_free()
