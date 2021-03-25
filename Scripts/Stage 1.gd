@@ -38,14 +38,10 @@ func create_blocks():
 	# Preenche horizontalmente
 	for i in range(56, 56 + 15*16, 16):
 		for j in range(24, 24 + 11*16, 32):
-			var block = Block.instance()
-			block.stage = self
-			var block_pos = Vector2(i, j)
-			block.position = block_pos
-			add_child(block)
+			var block = create_block(Vector2(i, j))
 			
 			# Posições não permitidas
-			if block_pos in block_positions:
+			if Vector2(i, j) in block_positions:
 				block.queue_free()
 			
 			aleatory_block(block)
@@ -53,18 +49,21 @@ func create_blocks():
 	# Preenche verticalmente
 	for i in range(56, 56 + 15*16, 32):
 		for j in range(40, 40 + 16*9, 32):
-			var block = Block.instance()
-			block.stage = self
-			var pos = Vector2(i, j)
-			block.position = pos
-			add_child(block)
+			var block = create_block(Vector2(i, j))
 
 			# Posições não permitidas
-			if pos in block_positions:
+			if Vector2(i, j) in block_positions:
 				block.queue_free()
 
 			aleatory_block(block)
 
+
+func create_block(pos: Vector2) -> Node2D:
+	var block = Block.instance()
+	block.stage = self
+	block.position = pos
+	add_child(block)
+	return block
 
 # Cria as paresdes que circundam a cena
 func create_walls():
