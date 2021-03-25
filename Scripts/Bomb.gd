@@ -36,3 +36,6 @@ func create(pos: Vector2, player: Node2D):
 func _on_Area2D_body_exited(body):
 	# Ativa a colisão
 	$CollisionShape2D.set_deferred("disabled", false)
+	
+	if body.is_in_group("Player"):
+		body.is_can_put_bomb = true

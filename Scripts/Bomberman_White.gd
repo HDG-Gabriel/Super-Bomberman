@@ -5,6 +5,9 @@ var movement = Vector2()
 
 var is_death: bool = false
 
+# Verifica se o jogador pode colocar bomba
+var is_can_put_bomb: bool = true
+
 export (PackedScene) var Bomb
 
 # Estágio em que o jogador se encontra
@@ -29,7 +32,7 @@ func _process(delta):
 			create_bomb()
 
 		if Input.is_action_pressed("ui_focus_next"):
-			print("Player position: " + str(position))
+			show_bombs()
 
 		# Se está se movendo
 		if movement != Vector2():
@@ -85,7 +88,8 @@ func change_direction():
 
 # Instancia um bomba
 func create_bomb():
-	if numero_bombas > 0:
+	if numero_bombas > 0 and is_can_put_bomb == true:
+		is_can_put_bomb = false
 		numero_bombas -= 1
 		var bomb = Bomb.instance()
 		bomb.stage = stage
@@ -96,6 +100,8 @@ func death():
 	is_death = true
 	$AnimatedSprite.play("Death")
 
+func show_bombs():
+	print("Número de bomba(s):" + str(numero_bombas))
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Death":
