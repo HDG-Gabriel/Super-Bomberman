@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Blocks/Exploding/1.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Blocks/Exploding/2.png" type="Texture" id=2]
@@ -8,18 +8,19 @@
 [ext_resource path="res://Sprites/Blocks/Exploding/4.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Blocks/Exploding/5.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Block.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "Normal",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Exploding",
 "speed": 9.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "Normal",
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -35,6 +36,7 @@ script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
+Item = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

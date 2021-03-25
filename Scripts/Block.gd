@@ -1,10 +1,8 @@
 extends StaticBody2D
 
+var stage: Stage1
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export (PackedScene) var Item
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +21,7 @@ func destroy():
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Exploding":
+		create_item()
 		queue_free()
 
 
@@ -33,3 +32,9 @@ func _on_Area2D_area_entered(area: Area2D):
 			area.get_parent().visible = true
 		area.queue_free()
 		destroy()
+
+
+func create_item():
+	var item = Item.instance()
+	stage.add_child_below_node(stage.get_node("Wall"), item)
+	item.position = position

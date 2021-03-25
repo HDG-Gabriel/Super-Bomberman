@@ -39,6 +39,7 @@ func create_blocks():
 	for i in range(56, 56 + 15*16, 16):
 		for j in range(24, 24 + 11*16, 32):
 			var block = Block.instance()
+			block.stage = self
 			var block_pos = Vector2(i, j)
 			block.position = block_pos
 			add_child(block)
@@ -53,6 +54,7 @@ func create_blocks():
 	for i in range(56, 56 + 15*16, 32):
 		for j in range(40, 40 + 16*9, 32):
 			var block = Block.instance()
+			block.stage = self
 			var pos = Vector2(i, j)
 			block.position = pos
 			add_child(block)
