@@ -99,6 +99,8 @@ func aleatory_block(block: Node2D):
 	
 	if random < 2:
 		block.queue_free()
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -34,7 +34,11 @@ func _on_Area2D_area_entered(area: Area2D):
 		destroy()
 
 
+# Probabilidade criar um item
 func create_item():
-	var item = Item.instance()
-	stage.add_child_below_node(stage.get_node("Wall"), item)
-	item.position = position
+	var random = 1 + randi()%10
+	
+	if random >= 2 and random <= 4:
+		var item = Item.instance()
+		stage.add_child_below_node(stage.get_node("Wall"), item)
+		item.position = position
