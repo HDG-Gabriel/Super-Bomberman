@@ -46,3 +46,4 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
