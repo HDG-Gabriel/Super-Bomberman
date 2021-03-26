@@ -15,8 +15,8 @@ var stage: Stage1
 
 export (PackedScene) var Bomb
 
-var numero_de_vidas = 1
-var numero_bombas: int = 1
+var life: int = 1
+var totally_bombs: int = 1
 
 enum Direction {TOP, LEFT, DOWN, RIGHT}
 var player_direction
@@ -91,9 +91,9 @@ func change_direction():
 
 # Instancia um bomba
 func create_bomb():
-	if numero_bombas > 0 and is_can_put_bomb == true:
+	if totally_bombs > 0 and is_can_put_bomb == true:
 		is_can_put_bomb = false
-		numero_bombas -= 1
+		totally_bombs -= 1
 		var bomb = Bomb.instance()
 		bomb.stage = stage
 		bomb.create(stage.player.position, self)
@@ -103,9 +103,20 @@ func death():
 	is_death = true
 	$AnimatedSprite.play("Death")
 
+
+# Torna o player 'invencível' por alguns segundos
+func be_invecible():
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Invecible.start()
+
 func show_life():
-	print("Número de bomba(s):" + str(numero_de_vidas))
+	print("Vidas(s):" + str(life))
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Death":
 		hide()
+
+
+# Não é mais invecível
+func _on_Invecible_timeout():
+	$CollisionShape2D.set_deferred("disabled", false)

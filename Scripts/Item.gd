@@ -36,11 +36,11 @@ func buffer_speed(body: Player):
 
 # Adiciona uma vida ao jogador
 func earn_life(body: Player):
-	body.numero_de_vidas += 1
+	body.life += 1
 
 # Adiciona uma bomba ao jogador
 func earn_bomb(body: Player):
-	body.numero_bombas += 1
+	body.totally_bombs += 1
 
 # Destroy o node atual
 func _on_ItemCollected_finished():

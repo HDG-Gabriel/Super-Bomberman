@@ -20,7 +20,7 @@ func _ready():
 #	pass
 
 func _on_Timer_timeout():
-	player.numero_bombas += 1
+	player.totally_bombs += 1
 	var explosion = Explosion.instance()
 	explosion.stage = stage
 	explosion.create_explosion(position)

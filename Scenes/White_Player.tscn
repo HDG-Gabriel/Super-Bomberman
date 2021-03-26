@@ -92,4 +92,8 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0189152, 4.26729 )
 shape = SubResource( 2 )
+
+[node name="Invecible" type="Timer" parent="."]
+wait_time = 2.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Invecible" to="." method="_on_Invecible_timeout"]
