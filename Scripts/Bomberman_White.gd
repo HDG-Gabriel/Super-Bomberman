@@ -6,7 +6,8 @@ export var velocity = 200
 var movement = Vector2()
 
 var is_death: bool = false
-
+# Permite se o jogador pode tomar dano
+var is_can_take_damage: bool = true
 # Verifica se o jogador pode colocar bomba
 var is_can_put_bomb: bool = true
 
@@ -106,7 +107,7 @@ func death():
 
 # Torna o player 'invencível' por alguns segundos
 func be_invecible():
-	$CollisionShape2D.set_deferred("disabled", true)
+	is_can_take_damage = false
 	$Invecible.start()
 
 func show_life():
@@ -119,4 +120,14 @@ func _on_AnimatedSprite_animation_finished():
 
 # Não é mais invecível
 func _on_Invecible_timeout():
-	$CollisionShape2D.set_deferred("disabled", false)
+	is_can_take_damage = true
+
+
+# Da dano no jogador
+func take_damage():
+	if is_can_take_damage:
+		if life == 1:
+			death()
+		else:
+			be_invecible()
+			life -= 1

@@ -57,11 +57,7 @@ func _on_Stub_body_entered(body):
 # Senão diminui a vida :d
 func kill_player(body):
 	if body is Player:
-		if body.life == 1:
-			body.death()
-		else:
-			body.be_invecible()
-			body.life -= 1
+		body.take_damage()
 
 
 # Quando a animação de explosão terminar ela será destruida
