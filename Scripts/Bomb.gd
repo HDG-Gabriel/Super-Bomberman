@@ -6,7 +6,7 @@ export (PackedScene) var Explosion
 
 var stage
 
-var player
+var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,5 +37,6 @@ func _on_Area2D_body_exited(body):
 	# Ativa a colisão
 	$CollisionShape2D.set_deferred("disabled", false)
 	
-	if body.is_in_group("Player"):
+	if body is Player:
+		body as Player
 		body.is_can_put_bomb = true

@@ -82,7 +82,7 @@
 
 [node name="Stage 1" type="Node2D"]
 script = ExtResource( 3 )
-Player = ExtResource( 2 )
+_Player = ExtResource( 2 )
 Block = ExtResource( 4 )
 Wall = ExtResource( 5 )
 

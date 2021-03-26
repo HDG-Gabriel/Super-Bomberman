@@ -53,12 +53,10 @@ func _on_Stub_body_entered(body):
 	kill_player(body)
 
 
-func kill_player(body: Node2D):
-	if body.is_in_group("Player"):
+func kill_player(body):
+	if body is Player:
+		body as Player
 		body.death()
-	
-	if body.is_in_group("Static_Blocks"):
-		pass
 
 
 # Quando a animação de explosão terminar ela será destruida

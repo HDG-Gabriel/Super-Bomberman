@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 export var velocity = 200
 var movement = Vector2()
 
@@ -8,10 +10,10 @@ var is_death: bool = false
 # Verifica se o jogador pode colocar bomba
 var is_can_put_bomb: bool = true
 
-export (PackedScene) var Bomb
-
 # Estágio em que o jogador se encontra
 var stage: Stage1
+
+export (PackedScene) var Bomb
 
 var numero_bombas: int = 1
 

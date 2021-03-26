@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Stage1
 
-export (PackedScene) var Player
+export (PackedScene) var _Player
 export (PackedScene) var Block
 export (PackedScene) var Wall
 
@@ -20,7 +20,7 @@ func _ready():
 
 # Cria um jogador
 func create_player():
-	player = Player.instance()
+	player = _Player.instance()
 	player.stage = self
 	player.position = Vector2(56, 20)
 	add_child(player)
