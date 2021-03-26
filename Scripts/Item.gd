@@ -8,7 +8,7 @@ func _ready():
 
 func choose_animation():
 	var anim = ["Life", "Power", "Speed", "Bomb"]
-	$AnimatedSprite.play(anim[0])
+	$AnimatedSprite.play(anim[randi()%4])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,7 +32,7 @@ func _on_Item_body_entered(body: Node2D):
 
 # Aumenta a velocidade do jogador
 func buffer_speed(body: Player):
-	body.velocity += 20
+	body.velocity += 15
 
 # Adiciona uma vida ao jogador
 func earn_life(body: Player):

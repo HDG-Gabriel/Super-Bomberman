@@ -109,9 +109,13 @@ func death():
 func be_invecible():
 	is_can_take_damage = false
 	$Invecible.start()
+	modulate = "332c2c"
+
 
 func show_life():
 	print("Vidas(s):" + str(life))
+	print("Total de bombas: " + str(totally_bombs))
+	print("Velocidade: " + str(velocity))
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Death":

@@ -7,6 +7,7 @@ func _ready():
 	# Por padrão a explosão inicia oculta, para que quando
 	# parte coloidir com outras coisas, a chama seja destruída
 	hide()
+	$Timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,3 +65,8 @@ func kill_player(body):
 func _on_AnimatedSprite_animation_finished():
 	queue_free()
 
+
+# Torna vísivel a explosão, se não colidir com nada
+func _on_Timer_timeout():
+	if visible == false:
+		show()

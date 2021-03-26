@@ -86,7 +86,7 @@ Bomb = ExtResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Death"
+animation = "Down"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
