@@ -38,5 +38,4 @@ func _on_Area2D_body_exited(body):
 	$CollisionShape2D.set_deferred("disabled", false)
 	
 	if body is Player:
-		body as Player
 		body.is_can_put_bomb = true

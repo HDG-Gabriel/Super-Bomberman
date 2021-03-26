@@ -8,7 +8,7 @@ func _ready():
 
 func choose_animation():
 	var anim = ["Life", "Power", "Speed", "Bomb"]
-	$AnimatedSprite.play(anim[3])
+	$AnimatedSprite.play(anim[0])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +17,7 @@ func choose_animation():
 
 
 func _on_Item_body_entered(body: Node2D):
-	if body.is_in_group("Player"):
+	if body is Player:
 		$ItemCollected.play()
 		$CollisionShape2D.set_deferred("disabled", true)
 		hide()
@@ -26,14 +26,20 @@ func _on_Item_body_entered(body: Node2D):
 			buffer_speed(body)
 		elif $AnimatedSprite.animation == "Bomb":
 			earn_bomb(body)
+		elif $AnimatedSprite.animation == "Life":
+			earn_life(body)
 
 
 # Aumenta a velocidade do jogador
-func buffer_speed(body: Node2D):
+func buffer_speed(body: Player):
 	body.velocity += 20
 
+# Adiciona uma vida ao jogador
+func earn_life(body: Player):
+	body.numero_de_vidas += 1
 
-func earn_bomb(body: Node2D):
+# Adiciona uma bomba ao jogador
+func earn_bomb(body: Player):
 	body.numero_bombas += 1
 
 # Destroy o node atual

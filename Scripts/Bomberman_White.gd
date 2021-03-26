@@ -15,6 +15,7 @@ var stage: Stage1
 
 export (PackedScene) var Bomb
 
+var numero_de_vidas = 1
 var numero_bombas: int = 1
 
 enum Direction {TOP, LEFT, DOWN, RIGHT}
@@ -34,7 +35,7 @@ func _process(delta):
 			create_bomb()
 
 		if Input.is_action_pressed("ui_focus_next"):
-			show_bombs()
+			show_life()
 
 		# Se está se movendo
 		if movement != Vector2():
@@ -102,8 +103,8 @@ func death():
 	is_death = true
 	$AnimatedSprite.play("Death")
 
-func show_bombs():
-	print("Número de bomba(s):" + str(numero_bombas))
+func show_life():
+	print("Número de bomba(s):" + str(numero_de_vidas))
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Death":

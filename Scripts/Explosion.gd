@@ -55,7 +55,6 @@ func _on_Stub_body_entered(body):
 
 func kill_player(body):
 	if body is Player:
-		body as Player
 		body.death()
 
 
