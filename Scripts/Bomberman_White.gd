@@ -16,8 +16,9 @@ var stage: Stage1
 
 export (PackedScene) var Bomb
 
-var life: int = 1
+var life: int = 2
 var totally_bombs: int = 1
+var damage: int = 1
 
 enum Direction {TOP, LEFT, DOWN, RIGHT}
 var player_direction
@@ -36,13 +37,14 @@ func _process(delta):
 			create_bomb()
 
 		if Input.is_action_pressed("ui_focus_next"):
-			show_life()
+			show_informations()
 
 		# Se está se movendo
 		if movement != Vector2():
 			change_direction()
 		else:
 			change_direction_idle()
+
 
 # Cuida da movimentação do player
 func move_player():
@@ -90,6 +92,7 @@ func change_direction():
 	elif player_direction == Direction.RIGHT:
 		$AnimatedSprite.play("Right")
 
+
 # Instancia um bomba
 func create_bomb():
 	if totally_bombs > 0 and is_can_put_bomb == true:
@@ -109,13 +112,23 @@ func death():
 func be_invecible():
 	is_can_take_damage = false
 	$Invecible.start()
-	modulate = "332c2c"
 
 
-func show_life():
+# Quando invencível, muda a cor do personagem
+func change_color():
+	if $AnimatedSprite.modulate == Color.white:
+		$AnimatedSprite.modulate = "332c2c"
+	else:
+		$AnimatedSprite.modulate == Color.white
+
+
+func show_informations():
+	print("=========================================")
 	print("Vidas(s):" + str(life))
 	print("Total de bombas: " + str(totally_bombs))
 	print("Velocidade: " + str(velocity))
+	print("Dano: " + str(damage))
+
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Death":
@@ -125,6 +138,7 @@ func _on_AnimatedSprite_animation_finished():
 # Não é mais invecível
 func _on_Invecible_timeout():
 	is_can_take_damage = true
+	$AnimatedSprite.modulate = Color.white
 
 
 # Da dano no jogador

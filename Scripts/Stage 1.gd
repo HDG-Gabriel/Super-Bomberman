@@ -25,7 +25,6 @@ func create_player():
 	player.position = Vector2(56, 20)
 	add_child(player)
 
-
 # Cria os blocos para a arena
 func create_blocks():
 	# Posições especiais onde não pode ter blocos

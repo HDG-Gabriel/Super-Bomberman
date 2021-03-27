@@ -8,7 +8,7 @@ func _ready():
 
 func choose_animation():
 	var anim = ["Life", "Power", "Speed", "Bomb"]
-	$AnimatedSprite.play(anim[randi()%4])
+	$AnimatedSprite.play(anim[1])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,19 +28,28 @@ func _on_Item_body_entered(body: Node2D):
 			earn_bomb(body)
 		elif $AnimatedSprite.animation == "Life":
 			earn_life(body)
+		elif $AnimatedSprite.animation == "Power":
+			high_damage(body)
 
 
 # Aumenta a velocidade do jogador
 func buffer_speed(body: Player):
 	body.velocity += 15
 
+
 # Adiciona uma vida ao jogador
 func earn_life(body: Player):
 	body.life += 1
 
+
+# Aumenta o dano da explosão
+func high_damage(body: Player):
+	body.damage += 1
+
 # Adiciona uma bomba ao jogador
 func earn_bomb(body: Player):
 	body.totally_bombs += 1
+
 
 # Destroy o node atual
 func _on_ItemCollected_finished():

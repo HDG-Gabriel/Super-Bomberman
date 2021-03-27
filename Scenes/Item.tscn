@@ -23,14 +23,14 @@ animations = [ {
 "name": "Speed",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Life",
-"speed": 2.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Power",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Life",
 "speed": 2.0
 } ]
 

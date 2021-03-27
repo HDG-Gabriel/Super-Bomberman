@@ -2,12 +2,16 @@ extends Node2D
 
 var stage: Stage1
 
+# Determina o tamanho da explosão
+var damage: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Por padrão a explosão inicia oculta, para que quando
 	# parte coloidir com outras coisas, a chama seja destruída
 	hide()
 	$Timer.start()
+	damage = stage.player.damage
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,7 +50,7 @@ func explosion_position(pos_bomb: Vector2):
 				node[i].get_node("CollisionShape2D").rotation_degrees = 90
 
 
-func _on_Center_body_entered(body: Node2D):
+func _on_Center_body_entered(body):
 	kill_player(body)
 
 
