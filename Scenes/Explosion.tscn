@@ -1,41 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Audio/Explosion.Wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Explosion.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Explosion/Center/center2.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Explosion/Center/center4.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Explosion/Center/center0.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Explosion/Center/center1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Explosion/Center/center3.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Explosion/Stub/Stub4.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Explosion/Stub/Stub3.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Explosion/Stub/Stub0.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Explosion/Stub/Stub2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Explosion/Stub/Stub1.png" type="Texture" id=14]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Center",
-"speed": 14.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 6.67741
-height = 1.0883
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "Stub",
-"speed": 14.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 4.16348
-height = 5.85701
 
 [node name="Explosion" type="Node2D" groups=[
 "Explosion",
@@ -45,54 +11,5 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="Center" type="Area2D" parent="." groups=[
-"Explosion",
-]]
-position = Vector2( 7.68195, 8.43102 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Center" groups=[
-"Explosion",
-]]
-position = Vector2( 0.0915184, -0.161653 )
-frames = SubResource( 1 )
-animation = "Center"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Center" groups=[
-"Explosion",
-]]
-position = Vector2( -0.207634, 0.166199 )
-shape = SubResource( 2 )
-
-[node name="Stub" type="Area2D" parent="." groups=[
-"Explosion",
-]]
-position = Vector2( 7.31125, 24.4833 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Stub" groups=[
-"Explosion",
-]]
-position = Vector2( 0.345715, -0.386963 )
-frames = SubResource( 3 )
-animation = "Stub"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stub" groups=[
-"Explosion",
-]]
-position = Vector2( 0.937374, -1.01267 )
-shape = SubResource( 4 )
-
 [node name="SoundExplosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-[connection signal="body_entered" from="Center" to="." method="_on_Center_body_entered"]
-[connection signal="animation_finished" from="Center/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="body_entered" from="Stub" to="." method="_on_Stub_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
