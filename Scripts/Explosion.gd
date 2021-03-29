@@ -58,6 +58,7 @@ func create_stubs():
 # Senão diminui a vida :d
 func kill_player(body):
 	if body is Player:
+		print("Ataque")
 		body.take_damage()
 
 
@@ -73,3 +74,33 @@ func destroy_nodes():
 # a explosão será destruída
 func _on_AnimatedSprite_animation_finished():
 	queue_free()
+
+#==============================================
+#              MATA O PLAYER
+#==============================================
+func _on_Center_body_entered(body):
+	kill_player(body)
+
+
+func _on_Tail_Vertical_body_entered(body):
+	kill_player(body)
+
+
+func _on_Tail_Horizontal_body_entered(body):
+	kill_player(body)
+
+
+func _on_Stub_Down_body_entered(body):
+	kill_player(body)
+
+
+func _on_Stub_Up_body_entered(body):
+	kill_player(body)
+
+
+func _on_Stub_Left_body_entered(body):
+	kill_player(body)
+
+
+func _on_Stub_Right_body_entered(body):
+	kill_player(body)
