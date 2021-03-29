@@ -1,18 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Sprites/Bomb/Wait_Explode/0.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Bomb/Wait_Explode/1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Bomb/Wait_Explode/2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Bomb/1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Bomb/2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Bomb/3.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Bomb.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Explosion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Audio/PutBomb.Wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Bomb/0.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Bomb",
-"speed": 3.0
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

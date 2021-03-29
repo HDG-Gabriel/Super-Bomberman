@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-8be6d16ccabc6ee0a2021c8b79dd4df3.stex"
+path="res://.import/1.png-f802294d5b1ce35efa8df1580d25f38f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bomb/Wait_Explode/1.png"
-dest_files=[ "res://.import/1.png-8be6d16ccabc6ee0a2021c8b79dd4df3.stex" ]
+source_file="res://Sprites/Bomb/1.png"
+dest_files=[ "res://.import/1.png-f802294d5b1ce35efa8df1580d25f38f.stex" ]
 
 [params]
 
