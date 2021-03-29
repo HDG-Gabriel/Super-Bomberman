@@ -21,11 +21,13 @@ func _ready():
 
 func create_explosion(pos: Vector2):
 	stage.add_child_below_node(stage.get_node("Wall"), self)
-	#$SoundExplosion.play()
+	$SoundExplosion.play()
 	$"Center".position = pos
+	$Center/AnimatedSprite.play("Explosion")
 	create_body_explosion()
 	create_stubs()
 	destroy_nodes()
+	$SoundExplosion.play()
 
 
 func create_body_explosion():
@@ -42,6 +44,7 @@ func create_node(area: Area2D, pos: Vector2):
 	var node = area.duplicate()
 	node.position = pos
 	add_child(node)
+	node.get_node("AnimatedSprite").play("Explosion")
 
 
 # Cria as "pontas" da explosão
