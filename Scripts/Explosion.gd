@@ -46,7 +46,10 @@ func create_node(area: Area2D, pos: Vector2):
 
 # Cria as "pontas" da explosão
 func create_stubs():
-	pass
+	var stubs = [$Stub_Down, $Stub_Left, $Stub_Up, $Stub_Right]
+	for i in range(0, 4):
+		var pos: Vector2 = $Center.position + sides[i] * (damage + 1)
+		create_node(stubs[i], pos)
 
 
 # Verifica se pode matar o player, se puder, mata,
