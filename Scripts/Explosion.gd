@@ -21,11 +21,10 @@ func _ready():
 
 func create_explosion(pos: Vector2):
 	stage.add_child_below_node(stage.get_node("Wall"), self)
-	$SoundExplosion.play()
 	$"Center".position = pos
-	$Center/AnimatedSprite.play("Explosion")
 	create_body_explosion()
 	create_stubs()
+	$Center/AnimatedSprite.play("Explosion")
 	destroy_nodes()
 	$SoundExplosion.play()
 
@@ -68,3 +67,9 @@ func destroy_nodes():
 
 	for node in nodes:
 		node.queue_free()
+
+
+# Quando a animmação de explosão terminar,
+# a explosão será destruída
+func _on_AnimatedSprite_animation_finished():
+	queue_free()
