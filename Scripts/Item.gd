@@ -8,7 +8,7 @@ func _ready():
 
 func choose_animation():
 	var anim = ["Life", "Power", "Speed", "Bomb"]
-	$AnimatedSprite.play(anim[1])
+	$AnimatedSprite.play(anim[randi()%4])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

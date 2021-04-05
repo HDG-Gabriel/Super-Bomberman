@@ -13,7 +13,7 @@ func _ready():
 	# Permite a criação de números pseudo-aleatórios
 	randomize()
 
-	#create_blocks()
+	create_blocks()
 	create_player()
 	create_walls()
 

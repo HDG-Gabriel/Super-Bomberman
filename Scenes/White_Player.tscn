@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Bomberman_White.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Players/White/Right/2.png" type="Texture" id=2]
@@ -20,6 +20,9 @@
 [ext_resource path="res://Sprites/Players/White/Death/5.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Players/White/Death/3.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Players/White/Death/4.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Players/White/Death/8.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Players/White/Death/6.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Players/White/Death/7.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -48,15 +51,10 @@ animations = [ {
 "name": "Idle_Left",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "Death",
 "speed": 6.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "Idle_Top",
-"speed": 1.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": false,
@@ -66,6 +64,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": false,
 "name": "Idle_Down",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "Idle_Top",
 "speed": 1.0
 } ]
 

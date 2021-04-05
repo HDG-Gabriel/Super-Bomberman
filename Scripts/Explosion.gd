@@ -1,6 +1,10 @@
 extends Node2D
 
+class_name Explosion
+
 var stage: Stage1
+
+var put_explosion_ver: bool = true
 
 # Sentido: baixo, esquerda, cima, direita
 var sides = [Vector2(0, 16), Vector2(-16, 0), Vector2(0, -16), Vector2(16, 0)]
@@ -58,7 +62,6 @@ func create_stubs():
 # Senão diminui a vida :d
 func kill_player(body):
 	if body is Player:
-		print("Ataque")
 		body.take_damage()
 
 

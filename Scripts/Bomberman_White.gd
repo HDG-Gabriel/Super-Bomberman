@@ -16,7 +16,7 @@ var stage: Stage1
 
 export (PackedScene) var Bomb
 
-var life: int = 2
+var life: int = 1
 var totally_bombs: int = 1
 var damage: int = 1
 
