@@ -17,6 +17,8 @@ func _ready():
 	# Por padrão a explosão inicia oculta, para que quando
 	# parte colidir com outras coisas, a chama seja destruída
 	damage = stage.player.damage
+	hide()
+	$Show_Explosion.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -107,3 +109,11 @@ func _on_Stub_Left_body_entered(body):
 
 func _on_Stub_Right_body_entered(body):
 	kill_player(body)
+
+
+
+func _on_Show_Explosion_timeout():
+	# A explosão inicia oculta, mas se não interagir com
+	# nada, após 0,1s ela será exibida
+	if self.visible == false:
+		show()
